@@ -3,4 +3,18 @@
 <section class='hero' id='hero'><div class='heroShade'><div><p class='eyebrow'>SANDWICHES DE MIGA</p><h2 id='heroTitle'></h2><p id='heroText'></p><a id='waHero' class='btn' target='_blank'>Consultar por WhatsApp</a></div></div></section>
 <main><section id='categorias'><div class='sectionHead'><div><span>CATÁLOGO</span><h2>Categorías</h2></div><input id='search' placeholder='Buscar productos...'></div><div id='categoryChips' class='chips'></div></section><section id='productos'><div class='sectionHead'><div><span>NUESTROS SABORES</span><h2>Productos</h2></div><select id='categoryFilter'><option value=''>Todas las categorías</option></select></div><div id='productGrid' class='grid'></div></section><section id='destacados' class='featured'><div><span>RECOMENDADOS</span><h2>Destacados de Noelia</h2><p id='featuredText'></p></div><div id='featuredGrid' class='grid compact'></div></section><section id='nosotros' class='about'><div><span>NOSOTROS</span><h2 id='aboutTitle'></h2><p id='aboutText'></p></div><div class='benefits'><div>✓ Pedidos personalizados</div><div>✓ Opciones para eventos</div><div>✓ Atención por WhatsApp</div></div></section></main>
 <footer id='contacto'><div><h3 id='footName'></h3><p id='address'></p></div><div><b>Contacto</b><p id='phone'></p><p id='email'></p></div><div><b>Seguinos</b><p id='socials'></p></div><a href='admin.html' class='adminLink'>Administración</a></footer>
-<div id='cartOverlay' class='cartOverlay'></div><aside id='cartDrawer' class='cartDrawer'><div class='cartHead'><h2>Tu carrito</h2><button id='closeCart'>×</button></div><div id='cartItems'></div><div class='cartBottom'><div><span>Total</span><strong id='cartTotal'>$0</strong></div><button id='checkout'>Finalizar pedido por WhatsApp</button><small>Revisá cantidades y total antes de enviar el pedido.</small></div></aside><script src='app.js'></script></body></html>
+<div id='cartOverlay' class='cartOverlay'></div><aside id='cartDrawer' class='cartDrawer'><div class='cartHead'><h2>Tu carrito</h2><button id='closeCart'>×</button></div><div id='cartItems'></div><div class='cartBottom'><div><span>Total</span><strong id='cartTotal'>$0</strong></div><button id='checkout'>Finalizar pedido por WhatsApp</button><small>Revisá cantidades y total antes de enviar el pedido.</small></div></aside><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+firebase.initializeApp({
+ apiKey:"AIzaSyAtu6FYpGqeNW7Ui6Gf9xbXU--J_DJDhiE",
+ authDomain:"sandwicheria-noelia.firebaseapp.com",
+ databaseURL:"https://sandwicheria-noelia-default-rtdb.firebaseio.com",
+ projectId:"sandwicheria-noelia",
+ storageBucket:"sandwicheria-noelia.firebasestorage.app",
+ messagingSenderId:"382827340407",
+ appId:"1:382827340407:web:70dadb7c24093614271c72"
+});
+window.noeliaDb=firebase.database();
+</script>
+<script src='app.js'></script></body></html>

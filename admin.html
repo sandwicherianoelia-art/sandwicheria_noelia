@@ -6,4 +6,18 @@
 <section id='categorias' class='tab'><div class='panel'><h2>Categorías</h2><div class='row'><input id='newCat' placeholder='Nueva categoría'><button id='addCat'>Agregar</button></div><div id='catList'></div></div></section>
 <section id='apariencia' class='tab'><div class='panel'><h2>Colores y fondos por sector</h2><p>Podés cambiar el color o cargar una foto de fondo en cada parte de la página.</p><div class='row'><div><label>Barra superior</label><input id='topBg' type='color'><label>Cabecera / logo</label><input id='brandBg' type='color'><label>Menú</label><input id='navBg' type='color'><label>Portada</label><input id='heroBg' type='color'><label>Categorías</label><input id='categoriesBg' type='color'><label>Productos</label><input id='productsBg' type='color'><label>Destacados</label><input id='featuredBg' type='color'><label>Nosotros</label><input id='aboutBg' type='color'><label>Pie de página</label><input id='footerBg' type='color'></div><div><label>Fondo Categorías</label><input id='categoriesImageFile' type='file' accept='image/*'><label>Fondo Productos</label><input id='productsImageFile' type='file' accept='image/*'><label>Fondo Destacados</label><input id='featuredImageFile' type='file' accept='image/*'><label>Fondo Nosotros</label><input id='aboutImageFile' type='file' accept='image/*'><label>Fondo Pie de página</label><input id='footerImageFile' type='file' accept='image/*'></div></div><button id='saveAppearance'>Guardar apariencia</button></div></section><section id='contacto' class='tab'><div class='panel'><h2>Contacto</h2><label>WhatsApp (código país + número)</label><input id='whatsapp'><label>Teléfono visible</label><input id='phone'><label>Email</label><input id='email'><label>Dirección / zona</label><input id='address'><label>Redes sociales</label><input id='socials'><button id='saveContact'>Guardar contacto</button></div></section>
 <section id='seguridad' class='tab'><div class='panel'><h2>Cambiar clave</h2><input id='newPass' type='password' placeholder='Nueva clave'><button id='changePass'>Cambiar clave</button><p>Esta versión guarda la clave localmente para probarla. Al publicar, se puede conectar a Firebase Authentication.</p></div></section>
-</main></div><script src='admin.js'></script></body></html>
+</main></div><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+firebase.initializeApp({
+ apiKey:"AIzaSyAtu6FYpGqeNW7Ui6Gf9xbXU--J_DJDhiE",
+ authDomain:"sandwicheria-noelia.firebaseapp.com",
+ databaseURL:"https://sandwicheria-noelia-default-rtdb.firebaseio.com",
+ projectId:"sandwicheria-noelia",
+ storageBucket:"sandwicheria-noelia.firebasestorage.app",
+ messagingSenderId:"382827340407",
+ appId:"1:382827340407:web:70dadb7c24093614271c72"
+});
+window.noeliaDb=firebase.database();
+</script>
+<script src='admin.js'></script></body></html>
