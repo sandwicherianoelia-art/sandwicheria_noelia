@@ -1,0 +1,20 @@
+SANDWICH DE MIGA NOELIA - V1
+
+1) Abrir index.html para ver la página.
+2) Abrir admin.html para administrar.
+3) La primera vez, admin.html permite crear una clave.
+4) Desde ADMIN se puede editar:
+   - Nombre y lema
+   - Colores
+   - Logo
+   - Imagen principal/fondo
+   - Textos
+   - Productos y precios
+   - Fotos de productos
+   - Productos destacados
+   - Categorías
+   - WhatsApp, teléfono, email, zona y redes
+5) Los cambios se guardan en el navegador (localStorage) para poder probar sin servidor.
+6) Para publicación definitiva se recomienda Firebase Authentication + Firestore + Storage para compartir los cambios entre PC y celular.
+
+IMPORTANTE: Las fotos de referencia enviadas por el usuario NO se copiaron. El diseño es propio y editable.
