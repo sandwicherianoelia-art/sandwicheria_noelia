@@ -2,8 +2,58 @@
 <header><div class='top'>PEDIDOS Y CONSULTAS POR WHATSAPP</div><div class='brand'><div id='logoBox' class='logo'>N</div><div><h1 id='brandName'>Sandwich de Miga Noelia</h1><small id='tagline'></small></div><div class='headActions'><button id='cartBtn' class='cartBtn'>🛒 Carrito <span id='cartCount'>0</span></button><a id='waTop' class='btn' target='_blank'>WhatsApp</a></div></div><nav><a href='#productos'>Productos</a><a href='#categorias'>Categorías</a><a href='#destacados'>Destacados</a><a href='#nosotros'>Nosotros</a><a href='#contacto'>Contacto</a></nav></header>
 <section class='hero' id='hero'><div class='heroShade'><div><p class='eyebrow'>SANDWICHES DE MIGA</p><h2 id='heroTitle'></h2><p id='heroText'></p><a id='waHero' class='btn' target='_blank'>Consultar por WhatsApp</a></div></div></section>
 <main><section id='categorias'><div class='sectionHead'><div><span>CATÁLOGO</span><h2>Categorías</h2></div><input id='search' placeholder='Buscar productos...'></div><div id='categoryChips' class='chips'></div></section><section id='productos'><div class='sectionHead'><div><span>NUESTROS SABORES</span><h2>Productos</h2></div><select id='categoryFilter'><option value=''>Todas las categorías</option></select></div><div id='productGrid' class='grid'></div></section><section id='destacados' class='featured'><div><span>RECOMENDADOS</span><h2>Destacados de Noelia</h2><p id='featuredText'></p></div><div id='featuredGrid' class='grid compact'></div></section><section id='nosotros' class='about'><div><span>NOSOTROS</span><h2 id='aboutTitle'></h2><p id='aboutText'></p></div><div class='benefits'><div>✓ Pedidos personalizados</div><div>✓ Opciones para eventos</div><div>✓ Atención por WhatsApp</div></div></section></main>
+
+<section class="publicOrderQr" id="publicOrderQr">
+  <div class="publicOrderQrInner">
+    <div>
+      <h2>Hacé tu pedido</h2>
+      <p>Escaneá el QR con tu celular para entrar a la página, elegir tus productos y realizar el pedido.</p>
+      <p class="publicQrPay">Podés abonar una seña del 50% o pagar el total.</p>
+    </div>
+    <div class="publicQrCard">
+      <img id="publicQrImg" alt="QR para hacer pedido">
+      <strong>Escaneá para pedir</strong>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var img=document.getElementById('publicQrImg');
+  if(!img)return;
+  var u=location.href.split('#')[0].split('?')[0];
+  img.src='https://api.qrserver.com/v1/create-qr-code/?size=360x360&data='+encodeURIComponent(u);
+})();
+</script>
+
 <footer id='contacto'><div><h3 id='footName'></h3><p id='address'></p></div><div><b>Contacto</b><p id='phone'></p><p id='email'></p></div><div><b>Seguinos</b><p id='socials'></p></div><a href='admin.html' class='adminLink'>Administración</a></footer>
-<div id='cartOverlay' class='cartOverlay'></div><aside id='cartDrawer' class='cartDrawer'><div class='cartHead'><h2>Tu carrito</h2><button id='closeCart'>×</button></div><div id='cartItems'></div><div class='cartBottom'><div><span>Total</span><strong id='cartTotal'>$0</strong></div><button id='checkout'>Finalizar pedido por WhatsApp</button><small>Revisá cantidades y total antes de enviar el pedido.</small></div></aside><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<div id='cartOverlay' class='cartOverlay'></div><aside id='cartDrawer' class='cartDrawer'><div class='cartHead'><h2>Tu carrito</h2><button id='closeCart'>×</button></div><div id='cartItems'></div><div class='cartBottom'><div><span>Total</span><strong id='cartTotal'>$0</strong></div><button id='checkout'>Realizar pedido</button><small>Completá tus datos, elegí seña del 50% o pago total y después enviá el comprobante.</small></div></aside>
+<div id='orderOverlay' class='orderOverlay'></div>
+<div id='orderModal' class='orderModal' role='dialog' aria-modal='true' aria-labelledby='orderTitle'>
+  <div class='orderModalHead'><h2 id='orderTitle'>Realizar pedido</h2><button id='closeOrder' type='button'>×</button></div>
+  <div class='orderModalBody'>
+    <div class='orderGrid'>
+      <div><label>Nombre y apellido</label><input id='oName' autocomplete='name' placeholder='Ej: Vanesa Cevallos'></div>
+      <div><label>Teléfono / WhatsApp</label><input id='oPhone' inputmode='tel' placeholder='Ej: 11 1234 5678'></div>
+      <div><label>Dirección</label><input id='oAddress' placeholder='Calle y número'></div>
+      <div><label>Localidad</label><input id='oCity' placeholder='Ej: Merlo'></div>
+    </div>
+    <button id='verifyAddress' type='button' class='secondaryBtn'>📍 Ver dirección en Google Maps</button>
+    <label>Forma de pago</label>
+    <div class='payChoices'>
+      <label><input type='radio' name='payMode' value='50' checked> Seña 50%</label>
+      <label><input type='radio' name='payMode' value='100'> Pagar 100%</label>
+    </div>
+    <div class='paymentBox'>
+      <div><span>Total del pedido</span><strong id='orderTotal'>$0</strong></div>
+      <div><span id='payLabel'>Seña a transferir (50%)</span><strong id='payAmount'>$0</strong></div>
+      <p>Alias para transferencia: <b id='payAlias'>Configurar en administración</b></p>
+    </div>
+    <button id='confirmOrder' type='button' class='confirmOrder'>Guardar pedido y enviar por WhatsApp</button>
+    <small class='orderNote'>El pedido queda guardado en el panel de administración. En WhatsApp podés adjuntar el comprobante de la transferencia.</small>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 <script>
 firebase.initializeApp({
