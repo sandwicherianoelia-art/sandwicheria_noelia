@@ -1,0 +1,14 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "tienda": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "pedidos": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}

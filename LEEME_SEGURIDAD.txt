@@ -1,0 +1,12 @@
+SEGURIDAD FIREBASE - SANDWICHERIA NOELIA
+
+1) Firebase Console > Authentication > Sign-in method > habilitar Correo/contraseña.
+2) Authentication > Users > Agregar usuario. Crear el correo y contraseña del administrador.
+3) Realtime Database > Reglas. Copiar TODO el contenido de firebase-rules.json y pulsar Publicar.
+4) Subir/reemplazar admin.html y admin.js junto con el resto de estos archivos en tu hosting.
+5) Entrar a admin.html con el correo y contraseña creados en Firebase.
+
+RESULTADO:
+- tienda: lectura pública para que cargue la web; escritura solo con administrador autenticado.
+- pedidos: cerrados al público en esta versión (el pedido actual se envía por WhatsApp); solo usuarios autenticados pueden leer/escribir.
+- ya no se usa la clave localStorage para entrar al administrador.
