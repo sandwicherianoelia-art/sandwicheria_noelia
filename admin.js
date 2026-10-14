@@ -1,4 +1,7 @@
-const KEY='noelia_store_v2',PASS='noelia_admin_pass';
+const KEY='noelia_store_v2';
+// Elimina cualquier clave del sistema de acceso local anterior.
+localStorage.removeItem('noelia_admin_pass');
+localStorage.removeItem('valhallaAdminPass');
 function parsePrice(v){if(typeof v==='number')return Number.isFinite(v)?v:0;let x=String(v??'').trim().replace(/\s/g,'').replace(/\$/g,'');if(!x)return 0;if(x.includes(',')&&x.includes('.')){if(x.lastIndexOf(',')>x.lastIndexOf('.'))x=x.replace(/\./g,'').replace(',','.');else x=x.replace(/,/g,'')}else if(x.includes(',')){x=x.replace(/\./g,'').replace(',','.')}else if(/^\d{1,3}(\.\d{3})+$/.test(x)){x=x.replace(/\./g,'')}let n=Number(x);return Number.isFinite(n)?n:0}
 function money(v){return '$'+parsePrice(v).toLocaleString('es-AR')}
 
